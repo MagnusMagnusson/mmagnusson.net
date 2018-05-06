@@ -12,3 +12,4 @@ tmp/*
 public/*
 public/
 update
+*.pyc
