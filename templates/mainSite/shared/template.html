@@ -1,11 +1,36 @@
 ﻿<!DOCTYPE html>
-
+{% load i18n %}
+{%load static%}
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>Testing File</title>
+    <title>
+    {%block title%}
+        Magnús Magnússon
+    {%endblock%}
+    </title>
+    <link rel="stylesheet" type="text/css" href="{% static "mainSite/site.css" %}"\>
 </head>
 <body>
-    <p>Your website works!</p>
+    <div id="overlay"></div>
+    <div id="header">
+        <div id="Navbar">
+            <ul>
+                <li>{%trans "Hafðu Samband" %}</li>
+                <li>{%trans "Verkefni" %}</li>
+                <li>{%trans "Starfsferill" %}</li>
+                <li>{%trans "Um mig" %}</li>
+                <li>
+                    <a href="#">{%trans "Heim" %}</a>
+                    <div></div>
+                </li>
+            </ul>
+        </div>
+    </div><div style="height:1000px;background-color:red;font-size:36px">
+        <div id="bodyWrapper">
+            {%block content%}
+            {%endblock%}
+        </div>
+    </div>
 </body>
 </html>

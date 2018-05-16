@@ -1,0 +1,40 @@
+#Navbar ul li{
+    list-style:none;
+    float:right;
+    margin-left:5%;
+    color:white
+}
+#Navbar {
+    height: 32px;
+    position: absolute;
+    top: 8px;
+    right: 32px;
+    width: 100%;
+}
+
+#Navbar ul{
+    height:32px;
+    overflow:hidden;
+}
+
+body {
+    background-image: url("images/blue-rose-placeholder.jpeg");
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
