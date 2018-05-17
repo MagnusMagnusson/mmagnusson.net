@@ -12,25 +12,34 @@
     <link rel="stylesheet" type="text/css" href="{% static "mainSite/site.css" %}"\>
 </head>
 <body>
-    <div id="overlay"></div>
     <div id="header">
         <div id="Navbar">
             <ul>
-                <li>{%trans "Hafðu Samband" %}</li>
-                <li>{%trans "Verkefni" %}</li>
-                <li>{%trans "Starfsferill" %}</li>
-                <li>{%trans "Um mig" %}</li>
+                <li>
+                    <a href="#">{%trans "Hafðu Samband" %}</a>
+                    <div></div>
+                </li>
+                <li>
+                    <a href="#">{%trans "Verkefnin Mín" %}</a>
+                    <div></div>
+                </li>
+                <li>
+                    <a href="#">{%trans "Um Mig" %}</a>
+                    <div></div>
+                </li>
                 <li>
                     <a href="#">{%trans "Heim" %}</a>
                     <div></div>
                 </li>
             </ul>
         </div>
-    </div><div style="height:1000px;background-color:red;font-size:36px">
+
+    </div>
+    <div id="overlay"></div>
         <div id="bodyWrapper">
             {%block content%}
             {%endblock%}
         </div>
-    </div>
+    
 </body>
 </html>
