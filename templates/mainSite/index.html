@@ -1,10 +1,51 @@
 ﻿{%extends "mainSite/shared/template.html"%}
 {% load i18n %}
+{%load static%}
 
-{%block content%}
+{%block style%}
+<link rel="stylesheet" type="text/css" href="{% static "mainSite/css/landing.css" %}"\>
+
+{%endblock%}
+
+{%block precontent%}
 <div id="heading">
     <h1 class="highlight">{% trans "Magnús Ágúst Magnússon" %}</h1>
     <h2 class="highlight">{% trans "Forritari, skáld, húmoristi." %}</h2>
     <h3 class="highlight">{% trans "Gaman að kynnast þér." %}</h3>
+    <h1 id="downArrow">⇩</h1>
+</div>
+{%endblock%}
+
+{%block content%}
+<div id="body-subwrapper">
+    <div id="me-container">
+        <img id="me" src="{% static "mainSite/images/profile.jpg" %}"/>
+        <p style="position: relative; left: 10%;font-size: 25px;"> {% trans "Ég!" %} </p>
+        <p id="arrow"> ➥ </p>
+    </div>
+
+    <ul id="nutshell">
+        <li class="bigText">
+            <b>{% trans "Ég:" %}</b>
+        </li>
+        <li>
+            {% trans "Er fæddur Hornfirðingur, staðsettur í Hafnarfirði" %}
+        </li>
+        <li>
+            {% trans "Er menntaður tölvunarstærðfræðingur (2018, BSc) frá Háskólanum í Reykjavík" %}
+        </li>
+        <li>
+            {% trans "Er reynslumikill í forritun og hubúnaðargerð" %}
+        </li>
+        <li>
+            {% trans "Hef víða þekkingu á forritunarmálum" %}
+        </li>
+        <li>
+            {% trans " " %}
+        </li>
+        <li>
+            {% trans "Er mikill dundari og hef fjölbreytt áhugamál" %}
+        </li>
+    </ul>
 </div>
 {%endblock%}

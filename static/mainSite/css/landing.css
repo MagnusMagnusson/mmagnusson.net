@@ -1,0 +1,40 @@
+#bodyWrapper {
+    top: 100%;
+    height:110%;
+}
+
+
+#me {
+    width: 20%;
+    left: 5%;
+    top: 30%;
+    position:relative;
+}
+
+#nutshell {
+    top: -34%;
+    left: 45%;
+    list-style: none;
+    position:relative;
+}
+
+#nutshell li {
+    margin-top: 3%;
+}
+
+#arrow {
+    transform: rotate(-90deg) scale(2);
+    width: 0px;
+    height: 0px;
+    margin: 0px;
+    position: relative;
+    left: 13%;
+    top: -25px;
+}
+
+#downArrow {
+    font-size: 10em;
+    position: relative;
+    left: 60%;
+    top: -260px;
+}

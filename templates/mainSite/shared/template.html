@@ -9,7 +9,9 @@
         Magnús Magnússon
     {%endblock%}
     </title>
-    <link rel="stylesheet" type="text/css" href="{% static "mainSite/site.css" %}"\>
+    <link rel="stylesheet" type="text/css" href="{% static "mainSite/css/site.css" %}"\>
+    {%block style%}    
+    {%endblock%}
 </head>
 <body>
     <div id="header">
@@ -35,11 +37,13 @@
         </div>
 
     </div>
-    <div id="overlay"></div>
-        <div id="bodyWrapper">
-            {%block content%}
-            {%endblock%}
-        </div>
+    <div id="overlay"></div>    
+    {%block precontent%}
+    {%endblock%}
+    <div id="bodyWrapper">
+        {%block content%}
+        {%endblock%}
+    </div>
     
 </body>
 </html>
