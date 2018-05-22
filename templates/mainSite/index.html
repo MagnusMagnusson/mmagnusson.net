@@ -18,34 +18,66 @@
 
 {%block content%}
 <div id="body-subwrapper">
-    <div id="me-container">
         <img id="me" src="{% static "mainSite/images/profile.jpg" %}"/>
-        <p style="position: relative; left: 10%;font-size: 25px;"> {% trans "Ég!" %} </p>
+    <div id="me-arrow">
+        <p> {% trans "Ég!" %} </p>
         <p id="arrow"> ➥ </p>
     </div>
 
-    <ul id="nutshell">
-        <li class="bigText">
-            <b>{% trans "Ég:" %}</b>
-        </li>
-        <li>
-            {% trans "Er fæddur Hornfirðingur, staðsettur í Hafnarfirði" %}
-        </li>
-        <li>
-            {% trans "Er menntaður tölvunarstærðfræðingur (2018, BSc) frá Háskólanum í Reykjavík" %}
-        </li>
-        <li>
-            {% trans "Er reynslumikill í forritun og hubúnaðargerð" %}
-        </li>
-        <li>
-            {% trans "Hef víða þekkingu á forritunarmálum" %}
-        </li>
-        <li>
-            {% trans " " %}
-        </li>
-        <li>
-            {% trans "Er mikill dundari og hef fjölbreytt áhugamál" %}
-        </li>
-    </ul>
+    <div id="nutshell">
+        <ul >
+            <li style="list-style:none" class="bigText">
+                <b>{% trans "Ég:" %}</b>
+            </li>
+            <li>
+                {% trans "Er fæddur Hornfirðingur, staðsettur í Hafnarfirði" %}
+            </li>
+            <li>
+                {% trans "Er menntaður tölvunarstærðfræðingur (BSc) frá háskólanum í Reykjavík" %}
+            </li>
+            <li>
+                {% trans "Er reynslumikill í forritun og hubúnaðargerð" %}
+            </li>
+            <li>
+                {% trans "Hef atvinnureynslu bæði af vefforritun og gagnagrunnshönnun" %}
+            </li>
+            <li>
+                {% trans "Hef víða þekkingu á forritunarmálum" %}
+            </li>
+            <li>
+                {% trans "Reiprennandi bæði í íslensku og ensku" %}
+            </li>
+            <li>
+                {% trans "Er mikill dundari og hef fjölbreytt áhugamál" %}
+            </li>
+            <li>
+                {% trans "Bý til litla kjánalega tölvuleiki stundum" %}
+            </li>
+            <li>
+                {% trans "Er ávallt jákvæður og þægilegur í umgengni" %}
+            </li>
+            <li>
+                {% trans "Hef un að ljóðlist og lestri, og yrki mikið" %}
+            </li>
+            <li>
+                {% trans "Er félagi í kvæðamannafélaginu Iðunn" %}
+            </li>
+            <li>
+                {% trans "tek stundum ljósmyndir af blómum í návígi" %}
+            </li>
+            <li>
+                {% trans "get bakað æðislegar súkkulaðitufflur" %}
+            </li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>{% trans "Meira um mig:"%}</p>
+        <p class="button"><a href="">{% trans "Einstaklingurinn ég (um mig)"%}</a></p>
+        <p class="button"><a href="">{% trans "Starferillinn minn"%}</a></p>
+        <p class="button"><a href="">{% trans "Litlu hálfbökuðu verkefnin mín"%}</a></p>
+        <p class="button"><a href="">{% trans "Viltu hafa samband?"%}</a></p>
+        <p class="button"><a href="">{% trans "Nokkar af ljósmyndunum mínum"%}</a></p>
+    </footer>
 </div>
 {%endblock%}

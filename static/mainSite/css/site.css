@@ -1,5 +1,10 @@
-html{
-    overflow:scroll;
+html, body {
+    margin: 0px;
+    padding: 0px;
+    max-width: 100% !important;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 #bodyWrapper {
@@ -10,16 +15,9 @@ html{
     position: absolute;
     left: 0px;
     top: 0px;
-    background: linear-gradient(rgba(0,0,0,0),black,black);
+    background: linear-gradient(rgba(0,0,0,0),black,black,black);
 }
 
-#heading {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    color: white;
-}
 
 #Navbar ul li{
     list-style:none;
@@ -44,9 +42,13 @@ html{
     height: 32px;
     position: fixed;
     top: 8px;
-    right: 32px;
-    width: 100%;
-    z-index:50;
+    padding-bottom: 14px;
+    padding-right: 85px;
+    border-radius: 60px;
+    width: 37%;
+    left: 60%;
+    background-color: #6933c6;
+    z-index: 50;
 }
 
 #Navbar ul{
@@ -66,10 +68,10 @@ html{
 
 body {
     background-image: url(../images/flower2.jpg);
-
+    overflow: hidden;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size:cover;
+    background-size: cover;
 }
 
 #overlay {
@@ -80,9 +82,9 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    z-index:-1;
-    position:fixed;
-
+    z-index: -1;
+    position: fixed;
+    overflow: hidden;
 }
 
 .highlight{
@@ -90,13 +92,21 @@ body {
     font-family:Tahoma;
 }
 
-#heading{
-    position:absolute;
-    left:15%;
-    top:33%;
-}
-
 
 .bigText{
     font-size:2em;
+}
+
+#footer {
+    color:white;
+    width: 100%;
+    position: absolute;
+    z-index: 55;
+    border-top: 1px solid white;
+    background-color: black;
+}
+
+#footer p, #footer a {
+    float: left;
+    margin-left: 5%;
 }
