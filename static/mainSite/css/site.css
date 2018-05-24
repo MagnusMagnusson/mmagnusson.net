@@ -104,9 +104,29 @@ body {
     z-index: 55;
     border-top: 1px solid white;
     background-color: black;
+    bottom: 0px;
 }
 
-#footer p, #footer a {
-    float: left;
-    margin-left: 5%;
+    #footer div p, #footer div a {
+        float: left;
+        margin-right: 5%;
+    }
+
+#footer div img {
+    width: 70%;
+    position: relative;
+    top: 5px;
+}
+
+a {
+    color: #6f1d72;
+}
+
+a:visited {
+    color: #6f1d72;
+}
+
+.vcenter {
+    position:relative;
+    left:25%;
 }

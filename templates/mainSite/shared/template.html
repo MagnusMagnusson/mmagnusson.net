@@ -18,11 +18,11 @@
         <div  id="Navbar">
             <ul>
                 <li>
-                    <a href="#">{%trans "Heim" %}</a>
+                    <a href="{%url 'index' %}">{%trans "Heim" %}</a>
                     <div></div>
                 </li>
                 <li>
-                    <a href="#">{%trans "Um Mig" %}</a>
+                    <a href="{%url 'about' %}">{%trans "Um Mig" %}</a>
                     <div></div>
                 </li>
                 <li>
@@ -46,9 +46,13 @@
     </div>
 
     <div id="footer">
-        <p>Magnús Ágúst Magnússon</p>
-        <p>magnus@mmagnusson.net</p>
-        <a href="https://github.com/MagnusMagnusson"><img src="{%static "mainSite\images\logo\GitHub-Mark.png"%}" /></a>
+        <div class="vcenter">
+            <p>Magnús Ágúst Magnússon</p>
+            <a href="https://github.com/MagnusMagnusson">
+                <img src="{%static "mainSite\images\logo\GitHub-Mark.png"%}" />
+            </a>
+            <p>magnus@mmagnusson.net</p>
+        </div>
     </div>
     
 </body>

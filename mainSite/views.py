@@ -9,3 +9,11 @@ def index(request,self):
 	template = loader.get_template('mainSite/index.html')
 	context = {}
 	return HttpResponse(template.render(context, request))
+
+
+
+def about(request):
+	template = loader.get_template('mainSite/about.html')
+	context = {}
+	return HttpResponse(template.render(context, request))
+
