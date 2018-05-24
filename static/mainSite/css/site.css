@@ -21,7 +21,7 @@ html, body {
 
 #Navbar ul li{
     list-style:none;
-    float:right;
+    float:left;
     margin-left:5%;
 }
 
@@ -30,12 +30,13 @@ html, body {
     width: 0%;
     top: 2px;
     position: relative;
-    background-color: white;
+    background-color: black;
     transition: width .5s;
 }
 
 #Navbar ul li:hover div{
     width: 100%;
+    background-color:black;
 }
 
 #Navbar {
@@ -43,11 +44,11 @@ html, body {
     position: fixed;
     top: 8px;
     padding-bottom: 14px;
-    padding-right: 85px;
     border-radius: 60px;
-    width: 37%;
-    left: 60%;
-    background-color: #6933c6;
+    width: 450px;
+    right: -20px;
+    background-color: white;
+    color: black;
     z-index: 50;
 }
 
@@ -56,10 +57,9 @@ html, body {
     overflow:hidden;
 }
 
-#Navbar a{
-    color:white;
-    font-size:medium;
-    font-family:Tahoma;
+#Navbar a {
+    font-size: medium;
+    font-family: Tahoma;
     text-decoration: none;
     transition: text-decoration 2s;
     -webkit-transition: text-decoration 2s; /* For Safari 3.1 to 6.0 */
@@ -98,7 +98,7 @@ body {
 }
 
 #footer {
-    color:white;
+    color: #fff9d3;
     width: 100%;
     position: absolute;
     z-index: 55;
