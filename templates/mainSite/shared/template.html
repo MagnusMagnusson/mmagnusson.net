@@ -14,46 +14,55 @@
     {%endblock%}
 </head>
 <body>
-    <div id="header">
-        <div  id="Navbar">
-            <ul>
-                <li>
-                    <a href="{%url 'index' %}">{%trans "Heim" %}</a>
-                    <div></div>
-                </li>
-                <li>
-                    <a href="{%url 'about' %}">{%trans "Um Mig" %}</a>
-                    <div></div>
-                </li>
-                <li>
-                    <a href="#">{%trans "Verkefnin Mín" %}</a>
-                    <div></div>
-                </li>
-                <li>
-                    <a href="#">{%trans "Hafðu Samband" %}</a>
-                    <div></div>
-                </li>
-            </ul>
-        </div>
+    <div id="container">
+        <div id="header">
+            <div id="Navbar">
+                <ul>
+                    <li>
+                        <a href="{%url 'index' %}">{%trans "Heim" %}</a>
+                        <div></div>
+                    </li>
+                    <li>
+                        <a href="{%url 'about' %}">{%trans "Um Mig" %}</a>
+                        <div></div>
+                    </li>
+                    <li>
+                        <a href="#">{%trans "Verkefnin Mín" %}</a>
+                        <div></div>
+                    </li>
+                    <li>
+                        <a href="#">{%trans "Hafðu Samband" %}</a>
+                        <div></div>
+                    </li>
+                </ul>
+            </div>
 
-    </div>
-    <div id="overlay"></div>    
-    {%block precontent%}
-    {%endblock%}
-    <div id="bodyWrapper">
-        {%block content%}
+        </div>
+        <div id="overlay"></div>
+        {%block precontent%}
         {%endblock%}
-    </div>
+        <div id="bodyWrapper">
+            {%block content%}
+            {%endblock%}
+        </div>
 
-    <div id="footer">
-        <div class="vcenter">
-            <p>Magnús Ágúst Magnússon</p>
-            <a href="https://github.com/MagnusMagnusson">
-                <img src="{%static "mainSite\images\logo\GitHub-Mark.png"%}" />
-            </a>
-            <p>magnus@mmagnusson.net</p>
+
+
+        <div id="footer">
+            <div class="vcenter">
+                <p>Magnús Ágúst Magnússon</p>
+                <a href="https://github.com/MagnusMagnusson">
+                    <img src="{%static "mainSite\images\logo\GitHub-Mark.png"%}" />
+                </a>
+                <p>magnus@mmagnusson.net</p>
+                
+            </div>
+            <small>
+                {%block lastUpdate %}
+                25.05.2018
+                {%endblock%}
+            </small>
         </div>
     </div>
-    
 </body>
 </html>
