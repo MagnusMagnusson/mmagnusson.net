@@ -127,18 +127,26 @@ body {
     position: absolute;
 }
 
-a {
-    color: #6f1d72;
+#navbar a {
+    color: #701e99;
+    text-decoration: none;
 }
 
-a:visited {
-    color: #6f1d72;
+p a {
+    color: #f77f4c;
+    text-decoration: none;
+}
+
+#navbar a:visited {
+    color: #701e99;
+    text-decoration: none;
 }
 
 .vcenter {
-    position:relative;
-    left:25%;
-    width:75%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-25%);
+    width: 50%;
 }
 
 ::-webkit-scrollbar {
