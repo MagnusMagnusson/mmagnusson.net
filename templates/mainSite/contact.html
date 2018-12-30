@@ -1,0 +1,41 @@
+﻿{%extends "mainSite/shared/template.html"%}
+{% load i18n %}
+{%load static%}
+
+{%block title%}
+    {%trans "hafðu samband"%}
+{%endblock%}
+
+{%block style%}
+<link rel="stylesheet" type="text/css" href="{% static "mainSite/css/contact.css" %}"\>
+
+{%endblock%}
+
+{%block content%}
+<div id="sub-bodyWrapper">
+
+    
+    <div id="about-text">
+        {%blocktrans%}
+
+        <h3>Viltu hafa samband?</h3>
+        <p>
+            Það er auðveldast að hafa samband við mig gegnum tölvupóst. 
+            undir venjulegum kringumstæðum ætti ég að svara innan sólarhrings.<br /><br />
+
+            Af persónulegum ástæðum vil ég helst ekki að símanúmer mitt, heimilisfang, eða aðrar samskiptaleiðir séu opinberar á netinu. 
+            <br /><br />
+
+            Auglýsingar, tilboð, ruslpóstur, fjöldapóstur, og önnur óvelkomin skilaboð afþökkuð. Slíkur póstur er sjálfkrafa síaður frá 
+            og er eytt án lesningar. 
+            <br /><br />
+            <a href="mailto:magnus@mmagnusson.net">magnus@mmagnusson.net</a>
+            <br /><br />
+
+        </p>
+        
+        {%endblocktrans %}
+    </div>
+
+</div>
+{%endblock%}

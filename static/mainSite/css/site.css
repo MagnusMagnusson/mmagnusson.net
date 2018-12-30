@@ -3,19 +3,23 @@ html, body {
     padding: 0px;
     max-width: 100% !important;
     height: 100vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
+
+}
+
+#container {
+    min-height: 100%;
+    margin: 0 auto;
+    position: relative;
 }
 
 #bodyWrapper {
     color: white;
     font-family: Tahoma;
     width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    background: linear-gradient(rgba(0,0,0,0),black,black,black);
+    min-height: 100%;
+    margin-top: -25px;
+    padding-bottom: 50px;
+    background: linear-gradient(rgba(0,0,0,.4),black,black,black,black,black);
 }
 
 
@@ -68,7 +72,6 @@ html, body {
 
 body {
     background-image: url(../images/flower2.jpg);
-    overflow: hidden;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -84,7 +87,6 @@ body {
     bottom: 0;
     z-index: -1;
     position: fixed;
-    overflow: hidden;
 }
 
 .highlight{
@@ -104,9 +106,49 @@ body {
     z-index: 55;
     border-top: 1px solid white;
     background-color: black;
+    bottom: 0px;
 }
 
-#footer p, #footer a {
+#footer div p, #footer div a {
     float: left;
-    margin-left: 5%;
+    margin-right: 5%;
+}
+
+#footer div img {
+    width: 70%;
+    position: relative;
+    top: 5px;
+}
+
+#footer small {
+    font-size: 13px;
+    margin-top: 10px;
+    margin-left: -45%;
+    position: absolute;
+}
+
+#navbar a {
+    color: #701e99;
+    text-decoration: none;
+}
+
+p a {
+    color: #f77f4c;
+    text-decoration: none;
+}
+
+#navbar a:visited {
+    color: #701e99;
+    text-decoration: none;
+}
+
+.vcenter {
+    position: relative;
+    left: 50%;
+    transform: translateX(-25%);
+    width: 100%;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
