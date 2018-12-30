@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns= i18n_patterns(
-    url(r'^$',  include('mainSite.urls'),
+    url(r'',  include('mainSite.urls'),
 ))
 
 urlpatterns += static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)

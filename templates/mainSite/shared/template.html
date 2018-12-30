@@ -3,53 +3,58 @@
 {%load static%}
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
     <title>
     {%block title%}
         Magnús Magnússon
     {%endblock%}
     </title>
     <link rel="stylesheet" type="text/css" href="{% static "mainSite/css/site.css" %}"\>
+    <link rel="shortcut icon" href="{% static "mainSite/images/favicon.ico" %}">
     {%block style%}    
     {%endblock%}
 </head>
 <body>
-    <div id="header">
-        <div  id="Navbar">
-            <ul>
-                <li>
-                    <a href="#">{%trans "Heim" %}</a>
-                    <div></div>
-                </li>
-                <li>
-                    <a href="#">{%trans "Um Mig" %}</a>
-                    <div></div>
-                </li>
-                <li>
-                    <a href="#">{%trans "Verkefnin Mín" %}</a>
-                    <div></div>
-                </li>
-                <li>
-                    <a href="#">{%trans "Hafðu Samband" %}</a>
-                    <div></div>
-                </li>
-            </ul>
+    <div id="container">
+        <div id="header">
+            <div id="Navbar">
+                <ul>
+                    <li>
+                        <a href="{%url 'index' %}">{%trans "Heim" %}</a>
+                        <div></div>
+                    </li>
+                    <li>
+                        <a href="{%url 'um' %}">{%trans "Um Mig" %}</a>
+                        <div></div>
+                    </li>
+
+                    <li>
+                        <a href="{%url 'samband' %}">{%trans "Hafðu Samband" %}</a>
+                        <div></div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <div id="overlay"></div>
+        {%block precontent%}
+        {%endblock%}
+        <div id="bodyWrapper">
+            {%block content%}
+            {%endblock%}
         </div>
 
-    </div>
-    <div id="overlay"></div>    
-    {%block precontent%}
-    {%endblock%}
-    <div id="bodyWrapper">
-        {%block content%}
-        {%endblock%}
-    </div>
 
-    <div id="footer">
-        <p>Magnús Ágúst Magnússon</p>
-        <p>magnus@mmagnusson.net</p>
-        <a href="https://github.com/MagnusMagnusson"><img src="{%static "mainSite\images\logo\GitHub-Mark.png"%}" /></a>
+
+        <div id="footer">
+            <div class="vcenter">
+                <p>Magnús Ágúst Magnússon</p>
+                <a href="https://github.com/MagnusMagnusson">
+                    <img src="{%static "mainSite\images\logo\GitHub-Mark.png"%}" />
+                </a>
+                <p>magnus@mmagnusson.net</p>
+                
+            </div>
+        </div>
     </div>
-    
 </body>
 </html>
