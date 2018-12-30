@@ -3,13 +3,13 @@
 {%load static%}
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
     <title>
     {%block title%}
         Magnús Magnússon
     {%endblock%}
     </title>
     <link rel="stylesheet" type="text/css" href="{% static "mainSite/css/site.css" %}"\>
+    <link rel="shortcut icon" href="{% static "mainSite/images/favicon.ico" %}">
     {%block style%}    
     {%endblock%}
 </head>
@@ -26,12 +26,9 @@
                         <a href="{%url 'um' %}">{%trans "Um Mig" %}</a>
                         <div></div>
                     </li>
+
                     <li>
-                        <a href="#">{%trans "Verkefnin Mín" %}</a>
-                        <div></div>
-                    </li>
-                    <li>
-                        <a href="#">{%trans "Hafðu Samband" %}</a>
+                        <a href="{%url 'samband' %}">{%trans "Hafðu Samband" %}</a>
                         <div></div>
                     </li>
                 </ul>
@@ -57,11 +54,6 @@
                 <p>magnus@mmagnusson.net</p>
                 
             </div>
-            <small>
-                {%block lastUpdate %}
-                25.05.2018
-                {%endblock%}
-            </small>
         </div>
     </div>
 </body>
