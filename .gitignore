@@ -13,3 +13,6 @@ public/*
 public/
 update
 *.pyc
+
+.vs
+.vs/
