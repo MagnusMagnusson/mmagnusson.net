@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+{% load i18n %}
+{%load static%}
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>
+    {%block title%}
+      Matur fyrir alla
+    {%endblock%}
+    </title>
+    <link rel="stylesheet" type="text/css" href="{% static "matarast/css/site.css" %}"\>
+    {%block style%}    
+    {%endblock%}
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <div id="Navbar">
+             
+            </div>
+
+        </div>
+        <div id="overlay"></div>
+        <div id="bodyWrapper">
+            {%block content%}
+            {%endblock%}
+        </div>
+
+
+
+        
+    </div>
+</body>
+</html>
