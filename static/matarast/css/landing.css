@@ -1,0 +1,55 @@
+#left-bar {
+    display:none;
+}
+
+#right-bar {
+    display:none;
+}
+
+body{
+    background:url(../images/landing-small.jpg);
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+h1, h2 {
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.big {
+    font-size: 4em;
+    width: 100%;
+}
+.medium {
+    font-size: 1.25em;
+    width: 100%;
+}
+.center {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+#search-container {
+    width: 33%;
+    margin-left: 33%;
+    height: 2em;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+#search {
+    width: 92%;
+    background-color: rgba(0,0,0,0);
+    border: none;
+    height: 100%;
+    margin-left: 4%;
+    margin-right: 4%;
+    text-align: center;
+    font-size: 1.6em;
+    font-style: italic;
+    color: black;
+}
+
+#search:focus {
+    outline:none;
+}

@@ -1,11 +1,16 @@
-﻿{%extends "mainSite/shared/template.html"%}
+﻿{%extends "matarast/shared/site.html"%}
 {% load i18n %}
 {%load static%}
 
 {%block style%}
-
+<link rel="stylesheet" type="text/css" href="{% static "matarast/css/landing.css" %}"\>
 {%endblock%}
 
 {%block content%}
-<h1>Halló!</h1>
+<h1 class="big center">Hvað er í matinn?</h1>
+<h2 class="medium center">Allar þínar uppskriftir á einum stað</h2>
+<div id="search-container">
+    <input type="search" id="search" name="recipie-search"
+           aria-label="Finndu ákveðna uppskrift">
+</div>
 {%endblock%}
