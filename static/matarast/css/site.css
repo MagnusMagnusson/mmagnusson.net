@@ -11,18 +11,18 @@ body{
 }
 
 
-#left-bar {
-    height: 100%;
-    width: 9em;
-    float: left;
-    /* padding-right: .4em; */
-    background-color: #cc0404;
+#bodyWrapper {
+    height: 90%;
+    background-color: #f4f6f7;
+    border-radius: 1.5em;
+    width: 85%;
+    margin-left: 5%;
+    margin-top: 2.5%;
+    padding: 2.5%;
 }
 
-#right-bar {
-    height: 100%;
-    width: 9em;
-    float: right;
-    /* padding-right: .4em; */
-    background-color: #cc0404;
+body {
+    background: url(../images/landing-small.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }

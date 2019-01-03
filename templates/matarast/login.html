@@ -1,0 +1,33 @@
+﻿{%extends "matarast/shared/site.html"%}
+{% load i18n %}
+{%load static%}
+
+{%block style%}
+<link rel="stylesheet" type="text/css" href="{% static "matarast/css/landing.css" %}"\>
+{%endblock%}
+
+{%block content%}
+<h2 class="medium center vcenter">Innskráning</h2>
+<div class="search-container">
+    <input type="text" id="uName" class="login" name="username"
+           aria-label="Notendanafn">
+</div>
+
+<div class="search-container">
+    <input type="password" id="pWord" class="login" name="password"
+           aria-label="Lykilorð">
+</div>
+
+
+<button class="confirm" id="login">Skrá inn</button>
+
+{%endblock%}
+{%block globals%}
+<script >
+    var login_api = "{% url 'api_login' %}";
+</script>
+{%endblock%}
+{%block scripts%}
+    <script src="{% static "matarast/js/login.js" %}"></script>
+{%endblock%}
+

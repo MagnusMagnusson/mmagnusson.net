@@ -6,11 +6,6 @@
     display:none;
 }
 
-body{
-    background:url(../images/landing-small.jpg);
-    background-size:cover;
-    background-repeat:no-repeat;
-}
 
 h1, h2 {
     color: white;
@@ -30,26 +25,55 @@ h1, h2 {
     text-align: center;
 }
 
-#search-container {
+.search-container {
     width: 33%;
     margin-left: 33%;
     height: 2em;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.75);
+    margin-top:.7em;
 }
 
-#search {
-    width: 92%;
+.vcenter{
+    margin-top:7em;
+}
+
+#search, .login {
+    width: 100%;
     background-color: rgba(0,0,0,0);
     border: none;
     height: 100%;
-    margin-left: 4%;
-    margin-right: 4%;
     text-align: center;
-    font-size: 1.6em;
+    font-size: 1.4em;
     font-style: italic;
     color: black;
 }
 
-#search:focus {
+#search:focus, .login:focus {
     outline:none;
+}
+
+.confirm {
+    text-align: center;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 1em;
+    width: 10em;
+    height: 2.5em;
+    border-radius: 1em;
+    border: none;
+    opacity: .9;
+    color: white;
+    background-color: black;
+}
+
+.confirm:focus{
+    outline: none;
+}
+
+.confirm:hover{
+    cursor:pointer;
+}
+
+#bodyWrapper{
+    background-color:rgba(0,0,0,0)
 }

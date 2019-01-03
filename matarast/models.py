@@ -42,3 +42,23 @@ class step(models.Model):
 	primaryRecipy = models.ForeignKey(Recipy,related_name='recipy')
 	description = models.TextField()
 	stepRecipy = models.ForeignKey(Recipy,related_name ='proxy', null=True)
+
+
+
+# Memberships
+
+class Member(models.Model):
+	id = models.BigIntegerField(primary_key = True)
+	name = models.CharField(max_length=20, unique = True)
+	salt = models.CharField( max_length=256)
+	password = models.CharField(max_length = 256)
+	permissions = models.IntegerField()
+
+class Login_log(models.Model):
+	id = models.AutoField(primary_key = True)
+	user = models.ForeignKey(Member)
+	time = models.DateTimeField()
+	lastRefresh = models.DateTimeField(null = True)
+	ip = models.CharField(max_length = 50)
+	cookie = models.CharField(max_length = 256, unique = True)
+
