@@ -9,17 +9,23 @@
     {%endblock%}
     </title>
     <link rel="stylesheet" type="text/css" href="{% static "matarast/css/site.css" %}"\>
-    {%block style%}    
+    {%block style%}
+    {%endblock%}
+    <script src="{% static "matarast/js/jquery.min.js" %}"></script>
+    <script src="{% static "matarast/js/site.js" %}"></script>
+    {%block scripts%}    
+    {%endblock%}
+    {%block globals%}
     {%endblock%}
 </head>
 <body>
+    {% csrf_token %}
     <div id="container">
         <div id="header">
 
         </div><div class="v-divide">
 </div>
-        <div id="left-bar"></div>
-        <div id="right-bar"></div>
+
         <div id="bodyWrapper">
             {%block content%}
             {%endblock%}
