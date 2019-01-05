@@ -12,7 +12,7 @@ body{
 
 
 #bodyWrapper {
-    height: 90%;
+    min-height: 90%;
     background-color: #f4f6f7;
     border-radius: 1.5em;
     width: 85%;

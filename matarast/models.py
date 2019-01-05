@@ -8,6 +8,7 @@ from django.db import models
 class Ingredient(models.Model):
 	id = models.AutoField(primary_key = True)
 	description = models.TextField()
+	image = models.URLField()
 
 class Language(models.Model):
 	name = models.CharField(max_length = 30)
@@ -22,12 +23,12 @@ class Ingredient_Name(models.Model):
 class Foodclass(models.Model):
 	id = models.AutoField(primary_key = True)
 	name = models.CharField(max_length = 50)
-	subclasses = models.ManyToManyField('self')
+	subclasses = models.ManyToManyField('self',symmetrical=False)
 
 class Recipy(models.Model):
 	id = models.AutoField(primary_key = True)
 	description = models.TextField()
-	subRecipies = models.ManyToManyField('self')
+	subRecipies = models.ManyToManyField('self',related_name = "subRecipy", symmetrical=False)
 
 class Ingredient_Recipy(models.Model):
 	id = models.AutoField(primary_key = True)
@@ -39,7 +40,7 @@ class Ingredient_Recipy(models.Model):
 class step(models.Model):
 	id = models.AutoField(primary_key = True)
 	index = models.IntegerField()
-	primaryRecipy = models.ForeignKey(Recipy,related_name='recipy')
+	primaryRecipy = models.ForeignKey(Recipy,related_name='primaryRecipy')
 	description = models.TextField()
 	stepRecipy = models.ForeignKey(Recipy,related_name ='proxy', null=True)
 

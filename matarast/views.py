@@ -7,7 +7,7 @@ from django.http import HttpResponse
 import sys
 from django.shortcuts import redirect
 from django.http import JsonResponse
-from matarast.models import Member
+from matarast.models import *
 
 sys.path.insert(0, 'opt/django-env/Core/matarast/scripts/')
 sys.path.insert(0, 'matarast/scripts/')
@@ -42,6 +42,18 @@ def profile(request):
 
 	return HttpResponse(template.render(context, request))
 
+def ingredient_new(request):
+	member = validate_login(request)
+	if(not member):
+		return login(request)
+	template = loader.get_template("matarast/create/new_ingredient.html")
+	languages = Language.objects.all()
+	foodClasses = Foodclass.objects.all()
+	context = {"member":member,
+			"languages":languages,
+			"foodclasses":foodClasses}
+
+	return HttpResponse(template.render(context, request))
 
 def api_log_in(request):
 	if not request.is_ajax():
@@ -79,3 +91,25 @@ def api_log_in(request):
 		}
 		return JsonResponse(D)
 
+def api_ingredient_new(request):
+	if not request.is_ajax():
+		D = {
+			'success':False,
+			'error': "There was an unexpected error with your request"
+		}
+		return JsonResponse(D)
+
+	member = validate_login(request)	
+	if(not member):		
+		D = {
+			'success':False,
+			'error': "You must be logged in to do that!"
+		}
+		return JsonResponse(D)
+
+	data = request
+	D = {
+		'success':False,
+		'error': "Hello."
+	}
+	return JsonResponse(D)
