@@ -1,0 +1,26 @@
+.editing {
+    border: 1px solid black;
+    background-color: #d8dec7;
+}
+
+.input {
+    border: 1px solid rgba(0,0,0,0.1);
+    padding: 3px;
+}
+
+#image_button {
+    margin-left: -327px;
+}
+
+#foodclass-container {
+    height: 4em;
+    margin-bottom: 2em;
+}
+
+.foodclass-box{
+    float:left;
+}
+.foodclass-div {
+    margin-right: 10px;
+    float: left;
+}
