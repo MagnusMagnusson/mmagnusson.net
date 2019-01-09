@@ -8,6 +8,7 @@ import sys
 from django.shortcuts import redirect
 from django.http import JsonResponse
 from matarast.models import *
+import json;
 
 sys.path.insert(0, 'opt/django-env/Core/matarast/scripts/')
 sys.path.insert(0, 'matarast/scripts/')
@@ -54,6 +55,24 @@ def ingredient_new(request):
 			"foodclasses":foodClasses}
 
 	return HttpResponse(template.render(context, request))
+
+def ingredient_view(request):
+	ing = request.path.split("/")[-1]
+	try:
+		name = Ingredient_Name.objects.filter(name__unaccent__iexact=ing)
+
+		ingredient = name.ingredient
+		context = {}
+		context['ingredient'] = ingredient
+		context['primaryName'] = name.name
+		context['names'] = Ingredient_Name.objects.filter(ingredient = ingredient)
+		template = loader.get_template("matarast/view/view_ingredient.html")	
+		return HttpResponse(template.render(context, request))
+	except Exception as e:		
+		return HttpResponse(e)
+
+
+
 
 def api_log_in(request):
 	if not request.is_ajax():
@@ -106,10 +125,45 @@ def api_ingredient_new(request):
 			'error': "You must be logged in to do that!"
 		}
 		return JsonResponse(D)
+	try:
+		data = json.loads(request.POST['data'])
 
-	data = request
+		desc = data['description']
+		img = data['image']
+		classList = data['classes']
+		ingredient = Ingredient()
+		ingredient.description = desc
+		ingredient.image=img 
+		ingredient.save()
+		for lang in data['names']:
+			string = data['names'][lang]
+			if(string and not string == ""):		
+				language = Language.objects.get(short=lang)
+				newName = Ingredient_Name()
+				newName.language = language
+				newName.name = string
+				newName.ingredient = ingredient
+				newName.save()
+		st = set()
+		for fc in classList:
+			_class = Foodclass.objects.get(id = fc)
+			st.add(_class)
+			for subClass in _class.subclasses.all():
+				st.add(subClass)
+		for _class in st:
+			ingredient.classes.add(_class)
+		ingredient.save()
+
+		d = {'name':newName.name}
+		success = True
+		error = None
+	except Exception as e:
+		success = False
+		error = e
+		d = None
 	D = {
-		'success':False,
-		'error': "Hello."
+		'success':success,
+		'error': error,
+		'data':d
 	}
 	return JsonResponse(D)

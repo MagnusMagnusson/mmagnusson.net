@@ -5,10 +5,17 @@ from django.db import models
 
 # Create your models here.
 # Create your models here.
+ 
+class Foodclass(models.Model):
+	id = models.AutoField(primary_key = True)
+	name = models.CharField(max_length = 50)
+	subclasses = models.ManyToManyField('self',symmetrical=False)
+
 class Ingredient(models.Model):
 	id = models.AutoField(primary_key = True)
 	description = models.TextField()
 	image = models.URLField()
+	classes = models.ManyToManyField(Foodclass,symmetrical=False)
 
 class Language(models.Model):
 	name = models.CharField(max_length = 30)
@@ -19,11 +26,11 @@ class Ingredient_Name(models.Model):
 	name = models.CharField(max_length = 30)
 	ingredient = models.ForeignKey(Ingredient)
 	language = models.ForeignKey(Language)
+	class Meta:
+			unique_together = (("name", "language"),)
 
-class Foodclass(models.Model):
-	id = models.AutoField(primary_key = True)
-	name = models.CharField(max_length = 50)
-	subclasses = models.ManyToManyField('self',symmetrical=False)
+
+
 
 class Recipy(models.Model):
 	id = models.AutoField(primary_key = True)
