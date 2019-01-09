@@ -58,7 +58,7 @@ function submitIngredient() {
 		data: data,
 		success: function (d) {
 			if (d.success) {
-				console.log(d.error);
+			    window.location.href = "../hraefni/" + d.data.name;
 			}
 			else {
 				console.log(d.error);
