@@ -12,9 +12,11 @@
 <div>
     <h1>{{primaryName}}</h1>
     <div id="alternative_names">
-        <p> þekkt sem 
+        <p> þekkt sem :
         {% for name in names %}
-            {{name.name}}<i>({{name.language.short}})</i>
+            {% if not forloop.first %}, 
+            {% endif %}
+        {{name.name}}<i>({{name.language.short}})</i>
         {% endfor %}
             </p>
     </div>

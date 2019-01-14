@@ -22,7 +22,11 @@
     {% csrf_token %}
     <div id="container">
         <div id="header">
-
+            {% if request.session.user %} 
+            <p style="color:white">{{ request.session.user }}</p>
+            {% else  %}
+            <p style="color:white">Log in</p>
+            {% endif %}
         </div><div class="v-divide">
 </div>
 

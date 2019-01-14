@@ -32,24 +32,32 @@ class Ingredient_Name(models.Model):
 
 
 
-class Recipy(models.Model):
+class recipie(models.Model):
 	id = models.AutoField(primary_key = True)
 	description = models.TextField()
-	subRecipies = models.ManyToManyField('self',related_name = "subRecipy", symmetrical=False)
+	subrecipies = models.ManyToManyField('self',related_name = "subrecipie", symmetrical=False)
 
-class Ingredient_Recipy(models.Model):
+class recipie_Name(models.Model):
+	id = models.AutoField(primary_key = True)
+	name = models.CharField(max_length = 30)
+	ingredient = models.ForeignKey(recipie)
+	language = models.ForeignKey(Language)
+	class Meta:
+			unique_together = (("name", "language"),)
+
+class Ingredient_recipie(models.Model):
 	id = models.AutoField(primary_key = True)
 	quantity = models.DecimalField(decimal_places = 2, max_digits = 5)
 	unit = models.CharField(max_length = 10)
-	recipy = models.ForeignKey(Recipy)
+	recipie = models.ForeignKey(recipie)
 	ingredient = models.ForeignKey(Ingredient)
 
 class step(models.Model):
 	id = models.AutoField(primary_key = True)
 	index = models.IntegerField()
-	primaryRecipy = models.ForeignKey(Recipy,related_name='primaryRecipy')
+	primaryrecipie = models.ForeignKey(recipie,related_name='primaryrecipie')
 	description = models.TextField()
-	stepRecipy = models.ForeignKey(Recipy,related_name ='proxy', null=True)
+	steprecipie = models.ForeignKey(recipie,related_name ='proxy', null=True)
 
 
 
@@ -67,6 +75,7 @@ class Login_log(models.Model):
 	user = models.ForeignKey(Member)
 	time = models.DateTimeField()
 	lastRefresh = models.DateTimeField(null = True)
+	expires = models.BooleanField(default = True)
 	ip = models.CharField(max_length = 50)
-	cookie = models.CharField(max_length = 256, unique = True)
+	cookie = models.CharField(max_length = 256, unique = True, null = True)
 

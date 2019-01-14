@@ -1,0 +1,59 @@
+﻿{%extends "matarast/shared/site.html"%}
+{% load i18n %}
+{%load static%}
+
+{%block style%}
+<link rel="stylesheet" type="text/css" href="{% static "matarast/css/recipie.css" %}"\>
+<link rel="stylesheet" type="text/css" href="{% static "matarast/css/newEntry.css" %}"\>
+{%endblock%}
+
+{%block scripts%}
+<script>
+    var new_ingredient_api = "{% url 'api_new_ingredient' %}";
+</script>
+<script src="{% static "matarast/js/input_editing.js" %}"></script>
+{%endblock%}
+
+
+{%block content%}
+<div>
+    <div id="alternative_names">
+        {% for language in languages %}
+        <input class="name" type="text" placeholder="{{language.name}}" name="{{language.short}}">
+        {% endfor %}
+    </div>
+    <div id="description" contenteditable="true" class="input">
+        <p>
+            Lýsing
+        </p>
+    </div>
+</div>
+<div id="recipie-container">
+    <h3>Hráefni:</h3>
+    <div id="ingredient-list-container">
+        <ul>
+            <li>
+                <div class="ingredient-div">
+                    <div class="fake-input input-div amount-div"><input type="number" class="fill" /></div>
+                    <div class="fake-input input-div unit-div"><input class="fill" type="text" /></div>
+                    <div class="fake-input input-div ingredient-name-div"><input class="fill" type="text" /></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <h3>Aðferð:</h3>
+    <div id="step-container">
+        <ol>
+            <li>
+                <div class="step-div-container">
+                    <div class="ex input-div">X</div>
+                    <div contenteditable="true" class="fake-input input-div step-div">
+                    </div>
+                </div>
+            </li>
+        </ol>
+        <div id="new-step-button">Bæta við skrefi</div>
+    </div>
+</div>
+<button id="submit">Vista hráefni</button>
+{%endblock%}

@@ -58,18 +58,27 @@ def ingredient_new(request):
 
 def ingredient_view(request):
 	ing = request.path.split("/")[-1]
-	try:
-		name = Ingredient_Name.objects.filter(name__unaccent__iexact=ing)
 
-		ingredient = name.ingredient
-		context = {}
-		context['ingredient'] = ingredient
-		context['primaryName'] = name.name
-		context['names'] = Ingredient_Name.objects.filter(ingredient = ingredient)
-		template = loader.get_template("matarast/view/view_ingredient.html")	
-		return HttpResponse(template.render(context, request))
-	except Exception as e:		
-		return HttpResponse(e)
+	name = Ingredient_Name.objects.filter(name__unaccent__iexact=ing)[0]
+
+	ingredient = name.ingredient
+	context = {}
+	context['ingredient'] = ingredient
+	context['primaryName'] = name.name
+	context['names'] = Ingredient_Name.objects.filter(ingredient = ingredient)
+	template = loader.get_template("matarast/view/view_ingredient.html")	
+	return HttpResponse(template.render(context, request))
+
+def recipie_new(request):
+	member = validate_login(request)
+	if(not member):
+		return login(request)
+	template = loader.get_template("matarast/create/new_recipie.html")
+	languages = Language.objects.all()
+	context = {"member":member,
+			"languages":languages}
+
+	return HttpResponse(template.render(context, request))
 
 
 
@@ -78,7 +87,7 @@ def api_log_in(request):
 	if not request.is_ajax():
 		D = {
 			'success':False,
-			'error': "There was an unexpected error with your request"
+			'error': "óvænt villa kom upp við beiðni þinni"
 		}
 		return JsonResponse(D)
 
@@ -86,7 +95,7 @@ def api_log_in(request):
 	if(member):		
 		D = {
 			'success':False,
-			'error': "You are already logged in"
+			'error': "Þú ert núþegar innskráður"
 		}
 		return JsonResponse(D)
 	pWord = request.POST['password'].encode('utf-8')
@@ -104,6 +113,7 @@ def api_log_in(request):
 		request.session.cycle_key()
 		request.session['logged_in'] = True
 		request.session['token'] = access[1]
+		request.session['user'] = uName
 		request.session.set_expiry(0)
 		D = {
 			'success':True
@@ -114,7 +124,7 @@ def api_ingredient_new(request):
 	if not request.is_ajax():
 		D = {
 			'success':False,
-			'error': "There was an unexpected error with your request"
+			'error': "óvænt villa kom upp við beiðni þinni"
 		}
 		return JsonResponse(D)
 
