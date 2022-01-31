@@ -1,0 +1,10 @@
+body{
+    background-color: black;
+    color: white;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+#content{
+    width:80%;
+    margin-left: 10%;
+}

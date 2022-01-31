@@ -1,0 +1,54 @@
+#profile_picture img{
+    border-radius: 50%;
+    width: 256px;
+    position: relative;
+    transform: translateX(-50%);
+}
+
+#profile_picture_wrapper{  
+    margin-left: 50%;
+    margin-top: 5%;
+}
+
+h2{
+    font-family:'Times New Roman', Times, serif;
+}
+h2, p{
+    text-align: center;
+    transform: translateX(-50%);
+}
+
+#landing-navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:3em;
+}
+
+div.landing-item{
+    padding-left:3em;
+    padding-right:3em;
+}
+
+div.landing-item a{
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+    width: 80px;
+    text-decoration: none;
+    color:white;
+}
+
+div.landing-item a:hover{
+    text-decoration: underline;
+}
+
+div.landing-item img{
+    width:100%;
+    height:100%;
+}
+
+div.landing-item b{
+    display:block;
+    font-weight: lighter;
+}
