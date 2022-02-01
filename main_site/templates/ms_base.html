@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+    <head>
+        {%block base_style%}
+        <link rel="stylesheet" href="static/css/ms_base.css">
+            {%block style%}
+            {%endblock style%}
+        {%endblock base_style%}
+    </head>
+    <body>
+        <div>
+            {%block navbar%}
+            {%endblock navbar%}
+            <div id="content">
+                {%block content%}
+
+                {%endblock content%}
+            </div>
+        </div>
+    </body>
+</html>

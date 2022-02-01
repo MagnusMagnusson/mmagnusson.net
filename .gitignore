@@ -13,3 +13,11 @@ public/*
 public/
 update
 *.pyc
+
+.vs
+.vs/
+
+static/matarast/images/landing.jpg
+site_env
+db.sqlite3
+static/
