@@ -13,15 +13,18 @@
             If you need to contact me feel free to use the form below.
         </p>
         <p>
-            This is a filtered inbox. unsolicited offers, spam, advertisements, irrelevant messages, or other unwanted communication will get automatically discarded and 
+            This is a filtered inbox. Unsolicited offers, spam, advertisements, irrelevant messages, or other unwanted communication will get automatically discarded and 
             will go unanswered. 
         </p>
     </div>
     <div>
-        <form class="centered" id="contact-form">
+        <form  method="post" class="centered" id="contact-form">
             {% csrf_token %}
             {{form}}
-            <input class="centered" id="submit-button" type="submit" value="Send Message"/>
+            {% if failed_captcha %}
+            <b style="color:palevioletred">That is not my name. It can be found on the landing page of this website, and in the domain</b>
+            {% endif  %}
+            <button class="centered" id="submit-button" type="submit"> Send Message</button>
         </form>
     </div>
 {%endblock content%}
