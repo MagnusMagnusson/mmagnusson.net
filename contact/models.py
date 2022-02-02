@@ -29,8 +29,8 @@ class ContactResponse(models.Model):
             send_mail(
                 'CONTACT FORM - ' + mess.header,
                 "A new message was recieved via mmagnusson.net from "+mess.name+" => "+mess.email+" \n\n "+mess.content,
-                os.environ.get('MY_EMAIL_ADDRESS'),
-                [os.environ.get('MY_EMAIL_ADDRESS')],
+                settings.ADMIN_EMAIL,
+                [settings.ADMIN_EMAIL],
                 fail_silently=True,
             )
         return True
