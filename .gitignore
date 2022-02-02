@@ -6,7 +6,7 @@
 # *~
 
 *.cvs
-settings.py
+secret.py
 tmp/
 tmp/*
 public/*
