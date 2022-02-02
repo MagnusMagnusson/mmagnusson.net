@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+from core import secret
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -21,13 +22,13 @@ ROOT_PATH = os.path.dirname(__file__)+"/.."
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '**!rx+5h42#fs0!omuc$7u0n^!7lp=q28^x2g^kovt7gif4%j#'
+SECRET_KEY = secret.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = secret.DEBUG
 
-ALLOWED_HOSTS = ["localhost","127.0.0.1"]
-ADMIN_EMAIL = "admin email here"
+ALLOWED_HOSTS = secret.ALLOWED_HOSTS
+ADMIN_EMAIL = secret.ADMIN_EMAIL
 
 # Application definition
 
@@ -60,9 +61,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            
-        ],
+        'DIRS': secret.TEMPLATE_DIRECTORY,
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -82,12 +81,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+DATABASES = secret.DATABASE
 
 
 # Password validation
