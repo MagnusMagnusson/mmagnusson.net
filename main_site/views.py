@@ -3,16 +3,34 @@ from django.http import HttpResponse
 from django.template import loader
 import random
 from contact.forms import ContactMeForm
+from contact.models import ContactResponse
+
 
 def landing(request):
     temp = loader.get_template('ms_landing.html')
     return HttpResponse(temp.render({}, request))
 
+def render_contact(request, is_failed = False):
+    temp = loader.get_template('ms_contact.html')
+    form = ContactMeForm()
+    cont={
+        "form":form,
+        "failed_captcha" : is_failed
+    }
+    return HttpResponse(temp.render(cont, request))
 def contact_me(request):
-    if request.method =="GET":
-        temp = loader.get_template('ms_contact.html')
-        form = ContactMeForm()
-        cont={
-            "form":form
-        }
-        return HttpResponse(temp.render(cont, request))
+    if request.method == "GET":
+        return render_contact(request)
+    elif request.method == "POST":
+        p = request.POST
+        name = p["your_name"]
+        email = p["your_email"]
+        header = p["message_title"]
+        body = p["your_message"]
+        captcha = p["my_name"]
+        success = ContactResponse.process(name, email, header, body, captcha)
+        if success:
+            temp = loader.get_template('ms_contact_thanks.html')
+            return HttpResponse(temp.render({}, request))
+        else:
+            return render_contact(request, True)
