@@ -5,6 +5,35 @@ body{
 }
 
 #content{
-    width:80%;
-    margin-left: 10%;
+    width:70%;
+    margin-left: 15%;
+}
+
+#navbar{
+    font-size:1.15em;
+}
+
+#navbar li{
+    display: inline;
+    margin-left:2em;
+    font-weight: bold;
+}
+
+
+a{
+    text-decoration: none;
+    color:white;
+}
+
+
+
+a:hover{
+    color:rgb(117, 228, 243);
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.centered{
+    margin-left:50%;
+    transform:translateX(-50%);
 }
