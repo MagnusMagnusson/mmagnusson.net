@@ -6,7 +6,7 @@
 # *~
 
 *.cvs
-settings.py
+secret.py
 tmp/
 tmp/*
 public/*
@@ -21,3 +21,4 @@ static/matarast/images/landing.jpg
 site_env
 db.sqlite3
 static/
+hidden/
