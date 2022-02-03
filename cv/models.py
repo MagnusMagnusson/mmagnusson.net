@@ -28,3 +28,11 @@ class BigSectionEntry(models.Model):
 
     def __str__(self):
         return self.label + "("+(self.section.name if self.section else "")+")"
+
+class Skill(models.Model):
+    skill = models.CharField(max_length=28)
+    category = models.CharField(max_length=28)
+    value = models.IntegerField()
+
+    def __str__(self):
+        return self.skill + "-" + str(self.value) +"  ["+self.category+"]"
