@@ -1,0 +1,70 @@
+{% extends "ms_base.html" %}
+
+{%block style%}
+<link rel="stylesheet" href="/static/css/ms_about.css">
+{%endblock style%}
+
+
+{% block content %}
+<div id = "content-wrap" class="centered centered-text">
+    <h2>Hello! I'm Magnús!</h2>
+    <div id="about-description">
+        <span id="left-img">
+        <img src="/static/img/pfp_img_1.jpg">
+        <i>2013 Me! <br><small>(modern photo coming soon)</small></i>
+        </span>
+        <span id="bio"> 
+            <b>My life</b>
+            <p>
+                I'm an Icelandic web developer currently living in the capital area with a partner, two cats, and a dog. I hail from Höfn, 
+                a lovely fishing town on the southeast coast of Iceland mainly known for being a prominent langoustine port. As a video-game obsessed 
+                kid I wanted nothing more than to make my own games. This obsession soon came ahead when I went online around 2008 and googled "How to make games free".
+                That turned me towards <a href="https://www.yoyogames.com/en/gamemaker">the game engine GameMaker</a>. A quick download later and many, many weeks 
+                of figuring out how to do anything of note my love of programming was ignited. At some point I moved to Reykjavík to pursuit a BSc in computer science 
+                and discrete mathematics at <a href="https://www.ru.is">Reykjavík University</a>. I graduated in 2018, took a brief detour by getting a BA in literary analysis 
+                at <a href="https://www.hi.is">the University of Iceland</a>, which I graduated with in 2022. 
+            </p>
+            <b>My career</b>
+            <p>
+                Since 2016 I've been employed by Rauðás Hubúnaður (Red Ace Software) who operate the card-playing website <a href="https://cardgames.io">Cardgames.io</a>. 
+                In my time at cardgames.io I've the standard array of front-end development duties, standard maintenance, fixing bugs, making the website mobile friendly, 
+                patched up shoddy AI, and implementing several of the 40+ games on the site. 
+
+                Additionally, I've done my hand at implementing various tools and internal managing sites for Rauðás in the 5-ish years I've worked with the company. 
+            </p>
+
+            <p>
+                I've taken on several freelance contracts over the years, and in that time have developed an <a href="https://thorbergsbok.esperanto.is"> Icelandic/Esperanto lookup dictionary</a>, 
+                fixed and continued development on an <a href="https://tradukisto.esperanto.is">Esperanto translation database</a>, have written editorial software for a <a href="https://bragi.arnastofnun.is">poetry research website</a>,
+                 and over summer developed a proof of concept place-directory under grant which isn't avaliable to the public but I am quite proud of. 
+            </p>
+            
+            <b>My Skills</b><br>
+            <small>Ranging from 1 (limited experience or minor interest) to 5 (extensive or frequent professional experience)</small>
+            {% for category, skill in skills.items %}
+            <div style="margin-top:0.5em">
+                <i>{{category}}</i><br>
+                <div class="skill-group">
+                    {% for s,v in skill %}
+                        <span class="skill"><span class="skill-name">{{s}} </span> 
+                            <span class="skillmeter skill_{{v}}">
+                                <span class="skill_circle"></span>
+                                <span class="skill_circle"></span>
+                                <span class="skill_circle"></span>
+                                <span class="skill_circle"></span>
+                                <span class="skill_circle"></span>
+                            </span>
+                        </span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </span>
+        <span id="right-img">
+        <img src="/static/img/avatar.png">
+        <i>Digital me!</i>
+        
+        </span>
+    </div>
+</div>
+{% endblock content %}
