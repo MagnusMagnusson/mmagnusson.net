@@ -1,12 +1,21 @@
+:root {
+    --light-blue: rgb(117, 228, 243);
+    --soft-orange:#eeab8a;
+}
+
 body{
     background-color: black;
-    color: white;
+    color: var(--soft-orange);
     font-family:Arial, Helvetica, sans-serif;
 }
 
+p, b, i{
+    font-size:18px;
+}
+
 #content{
-    width:70%;
-    margin-left: 15%;
+    width:86%;
+    margin-left: 7%;
 }
 
 #navbar{
@@ -22,13 +31,12 @@ body{
 
 a{
     text-decoration: none;
-    color:white;
+    color:var(--light-blue);
 }
 
 
 
 a:hover{
-    color:rgb(117, 228, 243);
     cursor: pointer;
     text-decoration: underline;
 }
@@ -36,4 +44,8 @@ a:hover{
 .centered{
     margin-left:50%;
     transform:translateX(-50%);
+}
+
+.centered-text{
+    text-align:center;
 }

@@ -4,6 +4,7 @@ from django.template import loader
 import random
 from contact.forms import ContactMeForm
 from contact.models import ContactResponse
+from cv.models import Skill
 
 
 def landing(request):
@@ -34,3 +35,15 @@ def contact_me(request):
             return HttpResponse(temp.render({}, request))
         else:
             return render_contact(request, True)
+
+def about(request):
+    temp = loader.get_template('ms_about.html')
+    skills = Skill.objects.all().order_by('-category','-value')
+    skillDict = {}
+    for s in skills:
+        c = s.category
+        print(s)
+        if not c in skillDict:
+            skillDict[c] = []
+        skillDict[c].append([s.skill, s.value])
+    return HttpResponse(temp.render({"skills":skillDict}, request))
