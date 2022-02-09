@@ -25,18 +25,38 @@ class References(models.Model):
     relation = models.CharField(max_length = 128)
     email = models.EmailField(max_length = 128, blank=True)
     phone = models.CharField(max_length = 128, blank=True)
+    language = models.CharField(max_length = 2, default="IS")
 
     def __str__(self):
         return self.name
+
+
+    @staticmethod 
+    def FieldName(lan):
+        lan = lan.lower()
+        if lan=="en":
+            return "References"
+        else:
+            return "Meðmæli"
+            
 
 class Education(models.Model):
     degree = models.CharField(max_length = 128, default="/")
     school = models.CharField(max_length = 128, default="/")
     start = models.CharField(max_length = 128, default="/")
     end = models.CharField(max_length = 128, default="/")
+    language = models.CharField(max_length = 2, default="IS")
 
     def __str__(self):
         return self.degree + " @ " + self.school
+
+    @staticmethod 
+    def FieldName(lan):
+        lan = lan.lower()
+        if lan=="en":
+            return "Education"
+        else:
+            return "Menntun"
 
 class Experience(models.Model):
     workplace = models.CharField(max_length = 128, default="Company")
@@ -44,9 +64,17 @@ class Experience(models.Model):
     description = models.TextField(max_length = 1024, default="description here. Lorem Ipsum sig dol loriet")
     start = models.CharField(max_length = 128, default="1995")
     end = models.CharField(max_length = 128, default="2100")
+    language = models.CharField(max_length = 2, default="IS")
 
     def __str__(self):
         return self.position + " @ " + self.workplace
+    @staticmethod 
+    def FieldName(lan):
+        lan = lan.lower()
+        if lan=="en":
+            return "Job History"
+        else:
+            return "Starfsreynsla"
 
 class Skill(models.Model):
     skill = models.CharField(max_length=28)
@@ -67,11 +95,30 @@ class Skill(models.Model):
             skillDict[c].append([s.skill, s.value])
         return skillDict
 
+    @staticmethod 
+    def FieldName(lan):
+        lan = lan.lower()
+        if lan=="en":
+            return "Skills"
+        else:
+            return "Hæfni"
+
 class Description(models.Model):
     description = models.TextField(max_length = 512)
-
+    language = models.CharField(max_length = 2, default="IS")
+            
 class Interest(models.Model):
     interest = models.CharField(max_length=16)
+    language = models.CharField(max_length = 2, default="IS")
 
     def __str__(self):
         return self.interest
+
+    @staticmethod 
+    def FieldName(lan):
+        lan = lan.lower()
+        if lan=="en":
+            return "Interests"
+        else:
+            return "Áhugamál"
+            
