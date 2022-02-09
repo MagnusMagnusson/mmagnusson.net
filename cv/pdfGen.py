@@ -113,7 +113,7 @@ def background_design(p):
 
 def image(p):
     #image
-    img = ImageReader(STATIC_ROOT +"/img/pfp_img_1.jpg")
+    img = ImageReader(STATIC_ROOT +"/img/pfp_img_2.jpg")
     size = img.getSize()
     imgX = marginRatio * xp 
     imgW = ((100.0/3.0) - 2*marginRatio)*xp
@@ -121,7 +121,7 @@ def image(p):
     imgH = ratio * size[1]
     imgY = yp * (100 - marginRatio) - imgH
     p.drawImage(img,imgX, imgY, imgW, imgH)
-    p.setLineWidth(20)
+    p.setLineWidth(16)
     p.roundRect(imgX, imgY, imgW, imgH, 20,1,0)
     p.setLineWidth(5)
 
