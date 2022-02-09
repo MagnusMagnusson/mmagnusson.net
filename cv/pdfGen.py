@@ -27,16 +27,18 @@ midFont = ['Helvetica', 12]
 smallFont = ['Helvetica', 10]
 tinyFont = ['Helvetica', 8]
 
-def generate_pdf_cv(censor = True):
+standard_line_seperation = 1.75 * yp
+
+def generate_pdf_cv(censor = True, language = "IS"):
     #buffer 
     buffer = io.BytesIO()
     p = canvas.Canvas(buffer)
 
     background_design(p)
-    left_side(p, censor)    
+    left_side(p, censor, language)    
     p.setStrokeColorRGB(*black)
     p.setFillColorRGB(*black)
-    right_side(p)
+    right_side(p, language)
 
     #Finalizing
     p.showPage()
@@ -44,33 +46,34 @@ def generate_pdf_cv(censor = True):
     buffer.seek(0)
     return buffer
 
-def left_side(p, censor):
+def left_side(p, censor, language = "IS"):
     p.setStrokeColorRGB(*purple)
     p.setFillColorRGB(*purple)
     offset = image(p)    
     p.setStrokeColorRGB(*white)
     p.setFillColorRGB(*white)
     offset -= marginRatio * yp
-    offset = about(p, offset)
+    offset = about(p, offset, language)
     offset -= marginRatio * yp
     offset = personal_info(p, offset, censor)
     offset -= 2.25*marginRatio*yp
-    references(p, offset, censor)
+    references(p, offset, censor, language)
 
-def right_side(p):
+def right_side(p, language="IS"):
     off = 100*yp - marginRatio * yp
-    off = education(p, off)
-    off = experiences(p, off)
-    off = skills(p, off)
-    off = interests(p, off)
+    off = education(p, off, language)
+    off = experiences(p, off, language)
+    off = skills(p, off, language)
+    off -= yp
+    off = interests(p, off, language)
 
-def experiences(p, off):
+def experiences(p, off, language ="IS"):
     ##experiences
     off -= marginRatio * yp
     p.setFont(*giantFont)
     third = (100.00 / 3.00) * xp
-    p.drawString(third + xp * marginRatio, off, "Starfsreynsla")
-    experiences = Experience.objects.all().order_by("-end")
+    p.drawString(third + xp * marginRatio, off, Experience.FieldName(language))
+    experiences = Experience.objects.filter(language=language).order_by("-end","start")
     off -= marginRatio * yp
     for experience in experiences:
         p.setFont(*largeFont)
@@ -82,17 +85,17 @@ def experiences(p, off):
         off -= marginRatio * yp
         p.setFont(*smallFont)
 
-        off -= drawStringExt(p, third + 2*xp * marginRatio,  off, experience.description, 2*third - 2*xp * marginRatio, marginRatio*yp)
+        off -= drawStringExt(p, third + 2*xp * marginRatio,  off, experience.description, 2*third - 2*xp * marginRatio, standard_line_seperation)
         off -= 1.5*yp
     return off
 
-def education(p, off):
+def education(p, off, language="IS"):
     ##education
     off -= marginRatio * yp
     p.setFont(*giantFont)
     third = (100.00 / 3.00) * xp
-    p.drawString(third + xp * marginRatio, off, "Menntun")
-    degrees = Education.objects.all().order_by("-end")
+    p.drawString(third + xp * marginRatio, off, Education.FieldName(language))
+    degrees = Education.objects.filter(language=language).order_by("-end")
     off -= marginRatio * yp
     for degree in degrees:
         p.setFont(*largeFont)
@@ -132,12 +135,12 @@ def image(p):
     p.drawCentredString(xp*(100.0/3.0) / 2,imgY - marginRatio * yp, "Magnús Á. Magnússon")
     return imgY - marginRatio * yp
 
-def about(p, off):
-    desc = Description.objects.all()
+def about(p, off, language="IS"):
+    desc = Description.objects.filter(language=language)
     if(len(desc) > 0):
         d = desc[0]
         p.setFont(*smallFont)
-        off -= drawStringExt(p, marginRatio*xp, off, d.description, xp*((100.0 / 3.0) - 2*marginRatio), 0.55*marginRatio*yp)
+        off -= drawStringExt(p, marginRatio*xp, off, d.description, xp*((100.0 / 3.0) - 2*marginRatio), 0.75*standard_line_seperation)
 
     return off
 
@@ -161,16 +164,17 @@ def personal_info(p, offset, censor):
         ## References
     return off
 
-def references(p, offset, censor):    
-    references = References.objects.all()
+def references(p, offset, censor, language="IS"):    
+    references = References.objects.filter(language=language)
     off = offset
     p.setFont(*largeFont)
-    p.drawString(xp * marginRatio, off, "Meðmæli:")
+    p.drawString(xp * marginRatio, off, References.FieldName(language)+":")
     off += 1*yp
     if censor:
         off -= 4*yp
         p.setFont(*smallFont)
-        p.drawString(xp * marginRatio, off, "Meðmæli falin af friðhelgisástæðum.")
+        p.drawString(xp * marginRatio, off, "Meðmæli falin af friðhelgisástæðum." if language == "IS" else "References hidden for privacy reasons.")
+        p.drawString(xp * marginRatio, off - yp*marginRatio, "Hafið samband ef þeirra er krafist" if language == "IS" else "Contact me directly if you need them.")
     else:
         for reference in references:
             off -= 3*yp
@@ -187,15 +191,16 @@ def references(p, offset, censor):
             p.drawString(xp * marginRatio, off, reference.phone)
     return off
 
-def skills(p, offset):
+def skills(p, offset, language="IS"):
     p.setFont(*giantFont)
     middle = xp*marginRatio + third
-    p.drawString(middle, offset, "Hæfni")
+    p.drawString(middle, offset, Skill.FieldName(language))
     middle += xp*marginRatio
     skillDict = Skill.skillDict()
     offset -= marginRatio * yp
-    p.setFont(*midFont)
+    p.setFont(*smallFont)
     p.setLineWidth(1)
+    radius = 0.75*xp
     hor = 0
     horSeperation = 30 * xp
     for category in skillDict:
@@ -208,28 +213,28 @@ def skills(p, offset):
                     p.setFillColorRGB(*purple)
                 else:
                     p.setFillColorRGB(*gray)
-                p.circle((hor * horSeperation) + middle + 9*xp + 2.5*i*xp, offset + 0.5*xp, xp,0,1)
+                p.circle((hor * horSeperation) + middle + 11*xp + 2.5*i*xp, offset + radius - 0.05, radius,0,1)
             hor += 1
             if(hor >= 2):
                 hor = 0
-                offset -= marginRatio * yp
+                offset -= 0.66*marginRatio * yp
         offset -= yp
     return offset
 
-def interests(p, offset):
+def interests(p, offset, language = "IS"):
     offset -= yp
     p.setFillColorRGB(*black)
     p.setFont(*giantFont)
     middle = xp*marginRatio + third
-    p.drawString(middle, offset, "Áhugamál")
+    p.drawString(middle, offset,  Interest.FieldName(language))
     offset -= marginRatio * yp
-    interests = Interest.objects.all().order_by("interest")
+    interests = Interest.objects.filter(language=language).order_by("interest")
     intTest = ""
     for interest in interests:
         intTest += interest.interest + ", "
-    intTest = intTest[:-2]+", og fleira"
+    intTest = intTest[:-2]+ (", og fleira" if language == "IS" else ", and more")
     p.setFont(*smallFont)
-    drawStringExt(p, middle + 2*xp, offset, intTest, third*2 - 2*xp*marginRatio, marginRatio*yp)
+    drawStringExt(p, middle + 2*xp, offset, intTest, third*2 - 2*xp*marginRatio, standard_line_seperation)
 
 def drawStringExt(canvas, x, y, text, width, sep):
     segments = []
