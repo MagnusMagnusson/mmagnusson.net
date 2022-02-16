@@ -9,7 +9,9 @@ urlpatterns= [
     path('admin/', admin.site.urls),     
     path('contact/', mainSite.contact_me),   
     path('about/cv.pdf', cvViews.cvPDF),     
-    path('about/', mainSite.about),   
+    path('about/', mainSite.about),    
+    path('portfolio/', mainSite.portfolio),   
+    path('portfolio/<int:id>', mainSite.portfolio),   
     path('', mainSite.landing),   
 ]
 

@@ -1,4 +1,4 @@
-{%extends "ms_base.html"%}
+{%extends "ms_base.template"%}
 
 {%block navbar%}
 {%endblock%}
@@ -33,12 +33,12 @@
                         <b>About</b>
                         </a>
                     </div>
-                    <!-- <div class="landing-item">
-                        <a href="/games">
-                        <img src="/static/img/icons/controller.png">
-                        <b>My Games</b>
+                    <div class="landing-item">
+                        <a href="/portfolio">
+                        <img src="/static/img/icons/briefcase.png">
+                        <b>Portfolio</b>
                         </a>
-                    </div>-->  
+                    </div>
                     <div class="landing-item">
                         <a href="/contact">
                         <img src="/static/img/icons/email.png">

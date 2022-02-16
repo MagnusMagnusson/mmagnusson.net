@@ -39,9 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'media_app',
     'main_site',
     'cv',
-    'contact'
+    'contact',
+    'portfolio',
 ]
 
 MIDDLEWARE = [
@@ -125,7 +127,8 @@ LOCALE_PATHS = (
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(ROOT_PATH, 'static') #after collect static is run all the static files will be put in this folder
+MEDIA_ROOT = os.path.join(ROOT_PATH, 'static/media')
 
 STATICFILES_DIRS = ( #is where Django will additionally look for static files
-
-)
+    os.path.join(ROOT_PATH, 'static/media'),
+) 

@@ -1,0 +1,50 @@
+{%extends "ms_base.template"%}
+
+
+{%block style%}
+<link rel="stylesheet" href="/static/css/ms_work.css">
+{%endblock style%}
+
+
+{% block content %}
+<div id = "content-wrap" class="centered centered-text">
+    <h2>{{work.title}}</h2>
+    <div class="work-wrapper">
+        <div class="image-wrapper"> 
+            <div class="image-reel">
+                {%for img in work.image.all%}
+                    <img {% if not forloop.first %}class="hidden" {% endif %} src="{{img.url}}"/>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="text-wrapper">
+            <div class="segment">
+                <b>Links</b>
+                <div>
+                    {% for link in work.links.all %}
+                        <a href="{{link.link}}">{{link.title}}</a>
+                    {% empty %} 
+                        No links for the given item
+                    {% endfor %}
+                </div>
+            </div>
+            <div  class="segment">
+                <b>Skills Utilized</b>
+                <div>
+                    {% for skill in work.skill.all %}
+                        <span class="skill"><i>{{skill.skill}}</i></span>
+                    {% endfor %}
+                </div>
+            </div>
+            <div  class="segment">
+                <b>Description</b>
+                <div>
+                    <p>{{work.description_en}}</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{%endblock content%}

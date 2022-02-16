@@ -1,4 +1,4 @@
-{% extends "ms_base.html" %}
+{% extends "ms_base.template" %}
 
 {%block style%}
 <link rel="stylesheet" href="/static/css/ms_about.css">

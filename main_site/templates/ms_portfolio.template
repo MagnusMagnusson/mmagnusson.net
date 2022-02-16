@@ -1,0 +1,67 @@
+{%extends "ms_base.template"%}
+
+
+{%block style%}
+<link rel="stylesheet" href="/static/css/ms_portfolio.css">
+{%endblock style%}
+
+
+{% block content %}
+<div id = "content-wrap" class="centered centered-text">
+    <h2>My Portfolio</h2>
+    <p>Here is a listing of the things I have worked on over the years. Some of this is professional, some of this is things 
+        I've made for my own amusement. Clicking on any given item will tell you about said thing in more detail.
+    </p>
+
+    <div>
+        <section>
+            {% for group in group_list %}
+            <div class="group">
+                <div class="group-head">
+                    <h3>
+                        {{group.group.title}}
+                    </h3>
+                    <p><i>{{group.group.description_en}}</i></p>
+                </div>                
+                <div class="group-body">
+                    {% for job in group.jobs %}
+                        {% ifchanged job.subgroup %}
+                            {% if not forloop.first %}
+                            </div>
+                            {% endif %}
+                            
+                            <b>{{job.subgroup}}</b>
+                            <div class="job-flex">
+                        {% endifchanged%}
+                                <div class="job" data-id="{{job.id}}">
+                                    <a href="{{job.id}}">
+                                        <img src="{{job.thumbnail.url}}"><br>
+                                        <i>{{job.title}}</i>
+                                    </a>
+                                </div>
+                            {% if  forloop.last %}
+                            </div>
+                            {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+    </div>
+</div>
+
+<script>
+    workSkills = {
+        {% for group in group_list %}
+            {% for job in group.jobs %}
+                "{{job.id}}" : [
+                    {% for skill in job.skill.all%}
+                        {{skill.id}},
+                    {% endfor %}
+                ],
+            {% endfor %}
+        {% endfor %}
+    };
+</script>
+{%endblock content%}
+
