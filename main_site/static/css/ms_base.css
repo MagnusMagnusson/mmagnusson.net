@@ -1,11 +1,13 @@
 :root {
     --light-blue: rgb(117, 228, 243);
     --soft-orange:#eeab8a;
+    --deep-purple: #880099;
+    --off-gray: #eeeeee;
 }
 
 body{
-    background-color: black;
-    color: var(--soft-orange);
+    background-color: var(--off-gray);
+    color: var(--deep-purple);
     font-family:Arial, Helvetica, sans-serif;
 }
 
@@ -48,4 +50,8 @@ a:hover{
 
 .centered-text{
     text-align:center;
+}
+
+#stuff, #counter{
+    margin-left: 50%;
 }

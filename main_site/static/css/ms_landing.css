@@ -52,3 +52,7 @@ div.landing-item b{
     display:block;
     font-weight: lighter;
 }
+
+#stuff, #counter{
+    margin-left: 50%;
+}

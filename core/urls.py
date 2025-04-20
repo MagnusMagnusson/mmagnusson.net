@@ -6,10 +6,6 @@ from main_site import views as mainSite
 from cv import views as cvViews
 
 urlpatterns= [
-    path('admin/', admin.site.urls),     
-    path('contact/', mainSite.contact_me),   
-    path('about/cv.pdf', cvViews.cvPDF),     
-    path('about/', mainSite.about),   
     path('', mainSite.landing),   
 ]
 
