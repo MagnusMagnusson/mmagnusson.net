@@ -22,3 +22,4 @@ db.sqlite3
 database.sqlite3
 /static/
 hidden/env/
+env/
