@@ -19,12 +19,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: templates/ms_landing.html:20
-msgid "Góðan og blessaðan daginn. Ég heiti <br/>Magnús Ágúst Magnússon.</h2>"
+msgid "Góðan og blessaðan daginn. Ég heiti <br/>Magnús Á. Magnússon.</h2>"
 msgstr "Hello there! My name is <br/>Magnús Á. Magnússon.</h2> "
 
 #: templates/ms_landing.html:22
 msgid ""
-"Ég er íslenskur vefforritari sem stundum býr til skemmtilega hluti mér til "
+"Ég er íslenskur vefforritari sem stundum bý til skemmtilega hluti mér til "
 "dundurs. Ég nota þetta vefsvæði mest megnis sem geymslu\n"
 "                fyrir persónuleg verkefni, en kannski mun ég setja eitthvað "
 "áhugavert hingað inn síðar meir. "
