@@ -109,6 +109,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'is'
 
+LANGUAGES = [
+    ('en', 'English'),
+    ('is', 'Icelandic'),
+]
+
 TIME_ZONE = 'UTC'
 
 USE_I18N = True

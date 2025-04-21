@@ -1,0 +1,39 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-21 01:54+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: templates/ms_landing.html:20
+msgid "Góðan og blessaðan daginn. Ég heiti <br/>Magnús Ágúst Magnússon.</h2>"
+msgstr "Hello there! My name is <br/>Magnús Á. Magnússon.</h2> "
+
+#: templates/ms_landing.html:22
+msgid ""
+"Ég er íslenskur vefforritari sem stundum býr til skemmtilega hluti mér til "
+"dundurs. Ég nota þetta vefsvæði mest megnis sem geymslu\n"
+"                fyrir persónuleg verkefni, en kannski mun ég setja eitthvað "
+"áhugavert hingað inn síðar meir. "
+msgstr ""
+"I'm an Icelandic web developer who sometimes makes fun things for my own "
+"amusement. I mainly use this domain as a personal storage bin, \n"
+"                but maybe I'll put something fun here eventually. "
+
+#: templates/ms_landing.html:29
+#, python-format
+msgid "Þú varst gestur %(order)s af %(count)s."
+msgstr "You were visitor number %(order)s out of %(count)s."

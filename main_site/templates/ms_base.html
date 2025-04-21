@@ -1,3 +1,4 @@
+{% load i18n %}
 <!doctype html>
 <html>
     <head>
@@ -10,29 +11,33 @@
     </head>
     <body>
         <div>
-            {%block navbar%}
-            <div id="navbar">
-                <ol>
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
-                    <li>
-                        <a href="/about">About</a>
-                    </li>
-                    <li>
-                        <a href="/contact">Contact</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/MagnusMagnusson">Git</a>
-                    </li>
-                </ol>
-            </div>
-            {%endblock navbar%}
             <div id="content">
                 {%block content%}
 
                 {%endblock content%}
             </div>
         </div>
+
+        <footer>
+            {%block footer%}
+
+            {% get_current_language as LANGUAGE_CODE %}
+            <a href="#" onclick="
+                event.preventDefault();
+                const parts = window.location.pathname.split('/').filter(Boolean);
+                if (parts.length > 0 && (parts[0] === 'en' || parts[0] === 'is')) {
+                parts[0] = parts[0] === 'en' ? 'is' : 'en';
+                window.location.pathname = '/' + parts.join('/');
+                }
+            ">            
+            {% if LANGUAGE_CODE == 'is' %}
+            Press me for English
+            {%else%}
+            Ýtið hér fyrir Íslensku
+            {%endif%}
+            </a>
+
+            {%endblock footer%} 
+        </footer>
     </body>
 </html>

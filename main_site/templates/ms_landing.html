@@ -1,10 +1,12 @@
 {%extends "ms_base.html"%}
+{% load i18n %}
+
 
 {%block navbar%}
 {%endblock%}
 
 {%block style%}
-<link rel="stylesheet" href="static/css/ms_landing.css">
+<link rel="stylesheet" href="/static/css/ms_landing.css">
 {%endblock style%}
 
 {%block content%}
@@ -14,26 +16,17 @@
             <img src="/static/img/me.jpg"></img>
     </div>
         <div>
-            <h2>Góðan og blessaðan daginn. Ég heiti Magnús Ágúst Magnússon.</h2>
+            <h2>
+                {% blocktrans %}Góðan og blessaðan daginn. Ég heiti <br/>Magnús Ágúst Magnússon.</h2>{% endblocktrans %}
             <p>
-                Ég er íslenskur vefforritari sem stundum bý til skemmtilega hluti mér til dundurs. 
+                {% blocktrans %}Ég er íslenskur vefforritari sem stundum býr til skemmtilega hluti mér til dundurs. Ég nota þetta vefsvæði mest megnis sem geymslu
+                fyrir persónuleg verkefni, en kannski mun ég setja eitthvað áhugavert hingað inn síðar meir. {% endblocktrans %}
             </p>
         </div>
     </div>
 
-    <div id="stuff">
-        <div>
-            <div>
-                
-            </div>
-            <div>
-                
-            </div>
-        </div>
-    </div>
-
     <div id="counter">
-        <p>Þú ert gestur {{order}} af {{count}}.</p>
+        <p>{% blocktrans %}Þú varst gestur {{order}} af {{count}}.{% endblocktrans %}</p>
     </div>
 
 
