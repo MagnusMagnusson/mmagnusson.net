@@ -18,6 +18,7 @@ update
 .vs/
 
 site_env
+db.sqlite
 db.sqlite3
 database.sqlite3
 /static/
